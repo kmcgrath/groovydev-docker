@@ -9,7 +9,9 @@ RUN apt-get update && apt-get install -y \
   bash \
   jq \
   && curl -L https://bit.ly/janus-bootstrap | bash \
-  && mkdir /code
+  && mkdir /code \
+  && mkdir ~/.janus \
+  && cd ~/.janus && git clone https://github.com/vim-scripts/groovyindent-unix.git
 
 # SDKMAN
 RUN curl -s get.sdkman.io | bash \
