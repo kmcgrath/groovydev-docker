@@ -1,48 +1,27 @@
-# godev
+# groovydev
 
-Go development with Vim+[Janus][janus-url], [vim-go][vim-go-url]
-binaries and [godep][godep-url]
+Groovy development with Vim+[Janus][janus-url]
 
-Docker Hub: [kmcgrath/godev][godev-hub-url]
+Docker Hub: [kmcgrath/groovydev][groovydev-hub-url]
 
-Github: [kmcgrath/docker-godev][godev-github-url]
+Github: [kmcgrath/docker-groovydev][groovydev-github-url]
 
 ## Use
 
-The following commands will mount the current directory on the host in
-the `GOPATH` in the container.  The working directory will be set to
-that directory.
-
-Replace `APP` in `/go/src/APP` with the name of your application, such as:
-
-    /go/src/my-app
-
-or
-
-    /go/src/github.com/username/my-app
-
-
 ### Get a shell
 
-    docker run -it -v "$PWD":/go/src/APP  -w /go/src/APP kmcgrath/godev bash
-
-Within a shell there is access to `go`, `godep`, `vim` and other go
-binaries. This is a good place to do `go get` and `godep save`. The
-`vendors` and `Godeps` directories will be written to the bind mount on the
-host.
+    docker run -it -v "$PWD":/code kmcgrath/groovydev bash
 
 ### Straight to vim
 
-    docker run -it -v "$PWD":/go/src/APP  -w /go/src/APP kmcgrath/godev vim .
+    docker run -it -v "$PWD":/go/src/APP  -w /go/src/APP kmcgrath/groovydev vim .
 
 
-### Run a Makefile
+### Run gradle
 
-    docker run -it -v "$PWD":/go/src/APP  -w /go/src/APP kmcgrath/godev make
+    docker run -it -v "$PWD":/go/src/APP  -w /go/src/APP kmcgrath/groovydev gradle build
 
 
-[godev-hub-url]: https://hub.docker.com/r/kmcgrath/godev/
-[godev-github-url]: https://github.com/kmcgrath/docker-godev
-[godep-url]: https://github.com/tools/godep
+[groovydev-hub-url]: https://hub.docker.com/r/kmcgrath/groovydev/
+[groovydev-github-url]: https://github.com/kmcgrath/docker-groovydev
 [janus-url]: https://github.com/carlhuda/janus
-[vim-go-url]: https://github.com/fatih/vim-go
